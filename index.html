@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="icon" href="https://cdn-icons-png.magnific.com/256/12130/12130857.png?semt=ais_white_label">
+    
+    <!-- Bootstrap -->
+     <!-- css -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+      <!-- js -->
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+       <link rel="stylesheet" href="./bmistyle.css">
+        <!-- fontawesome -->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+       <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dancing+Script:wght@400..700&family=Elsie:wght@400;900&family=Italianno&family=Kameron:wght@400..700&family=Libre+Caslon+Condensed:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montenegrin+Gothic+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Protest+Revolution&display=swap" rel="stylesheet">
+</head>
+<body >
+    <div class="container py-4">
+        <h1 class="text-center mt-3">BMI Calculator</h1>
+        <p class="text-center text-secondary mb-4">Understand your BMI and build healthier habits</p>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card border-1 shadow-sm rounded-4 h-100 ">
+                    <div class="card-body p-4">
+                        <h4 class="text-center mb-4">Calculate Your BMI</h4>
+
+                   <div class="d-flex gap-3 mb-3">
+                     <div class="w-50">
+                        <label for="ht" class="form-label">Height(cm)</label>
+                        <input id="ht" type="number" class="form-control mb-3" placeholder="Enter your height"></div>
+                    <div class="w-50">
+                        <label for="" class="form-label">Weight</label>
+                    <input id="wt" type="number" class="form-control mb-3" placeholder="Enter your weight">
+                    </div>
+                   </div>
+
+                    <div class="d-flex gap-3 mb-2">
+                   <div class="w-50">
+                     <label for="age" class="form-label">Age</label>
+                    <input id="age" type="number" class="form-control" placeholder="Enter your age">
+                   </div>
+                   <div class="w-50">
+                    <label for="" class="form-label d-block">Gender</label>
+                    <input id="fm" type="radio" name="gender" >
+                    <label for="fm" class="me-2">Female</label>
+                    <input id="ml" type="radio" name="gender">
+                    <label for="ml" >Male</label>
+                   </div>
+                    </div>
+                    
+                    <div class="d-flex gap-3">
+                        <button type="button" class="btn btn-outline-primary text-center mt-5" onclick="calculate()">Calculate BMI</button>
+                        <button type="reset" class="btn btn-outline-secondary text-center mt-5" onclick="reset()">Reset</button>
+                        
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="card border-1 shadow-sm rounded-4 h-100">
+                    <div class="card-body p-4">
+                        <h4 class="mb-3">Your Result</h4>
+                        <div class="text-center ">
+                            <p class="text-secondary mb-1">Your BMI</p>
+                        <h1 id="result" class=" fw-semibold">--</h1>
+                        <p id="categoryy" class="fw-semibold"></p>
+                        </div>
+                        <hr>
+                        <div class="text-center">
+                            <img width="250px" src="https://www.emeraldlaser.com/wp-content/uploads/2022/11/body-mass-index.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <!-- <img width="200px" src="https://www.emeraldlaser.com/wp-content/uploads/2022/11/body-mass-index.jpg" alt=""> -->
+            </div>
+        </div>
+
+        <div id="guide" class="row mt-3 ">
+            <!-- <div class="col-4">
+                <div class="border rounded-3 p-3 text-center flex-fill bg-white">
+                <i class="fa-solid fa-bowl-rice" style="color: rgb(177, 151, 252);"></i>
+                <h5 class="fw-bold mt-2">Nutrition</h5>
+                <p id="nut"></p>
+            </div>
+            </div>
+            <div class="col-4">
+                <div class="border rounded-3 p-3 text-center flex-fill bg-white">
+                <i class="fa-solid fa-person-running" style="color: rgb(177, 151, 252);"></i>
+                <h5 class="fw-bold mt-2">Physical Activities</h5>
+                <p id="phy"></p>
+            </div>
+            </div>
+            <div class="col-4">
+                <div class="border rounded-3 p-3 text-center flex-fill bg-white">
+                <i class="fa-solid fa-bed" style="color: rgb(177, 151, 252);"></i>
+                <h5 class="fw-bold mt-2">Sleep</h5>
+                <p id="sle"></p>
+            </div>
+            </div> -->
+        </div>
+        
+    </div>
+</body>
+
+<!-- <i class="fa-regular fa-bowl-rice" style="color: rgb(177, 151, 252);"></i> -->
+ <!-- <i class="fa-solid fa-person-running" style="color: rgb(177, 151, 252);"></i> -->
+  <!-- <i class="fa-solid fa-bed" style="color: rgb(177, 151, 252);"></i> -->
+<script src="./bmi.js"></script>
+</html>
